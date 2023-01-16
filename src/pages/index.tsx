@@ -14,35 +14,50 @@ import {
   IoLocationOutline,
   IoCalendarOutline,
   IoMusicalNotesOutline,
+  IoLogoGoogle,
+  IoLogoApple,
 } from "react-icons/io5";
-import { useState } from "react";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
+type Modal =
+  | ""
+  | "RSVP"
+  | "Contact"
+  | "Location"
+  | "Calendar"
+  | "Music"
+  | "RSVPYes"
+  | "RSVPNo";
 
 const Home: NextPage = () => {
   const lelaki = "shahrin";
   const perempuan = "aimi";
   const lelaki_full = "Shahrin Amin";
   const perempuan_full = "Aimi Umairah";
-  const bapa = "Sharifudin";
-  const ibu = "Zurinah";
+  const bapa = "Sharifudin bin Ghazalli";
+  const ibu = "Zurinah binti Jaa'far";
   const tarikh = "Ahad, 27 Ogos 2023";
   const alamat =
     "80 jalan desiran bayu 1 taman desiran bayu. 53300 Setapak KL WP";
 
   return (
-    <div className="mx-auto min-h-screen w-full max-w-[400px] shadow-2xl shadow-gray-600/50">
-      <TitlePage lelaki={lelaki} perempuan={perempuan} tarikh={tarikh} />
-      <IntroductionPage
-        lelaki={lelaki_full}
-        perempuan={perempuan_full}
-        bapa={bapa}
-        ibu={ibu}
-        tarikh={tarikh}
-        alamat={alamat}
-      />
-      <TentativePage />
-      <NavigationBar />
-    </div>
+    <>
+      <Toaster />
+      <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
+        <TitlePage lelaki={lelaki} perempuan={perempuan} tarikh={tarikh} />
+        <IntroductionPage
+          lelaki={lelaki_full}
+          perempuan={perempuan_full}
+          bapa={bapa}
+          ibu={ibu}
+          tarikh={tarikh}
+          alamat={alamat}
+        />
+        <TentativePage />
+        <NavigationBar />
+      </div>
+    </>
   );
 };
 
@@ -175,26 +190,14 @@ export const TentativePage = () => {
 };
 
 export const NavigationBar = () => {
-  type Modal = "" | "RSVP" | "Contact" | "Location" | "Calendar" | "Music";
-  const [openModal, setOpenModal] = useState<Modal>("RSVP");
-  const [parent] = useAutoAnimate<HTMLDivElement>();
+  const [openModal, setOpenModal] = useState<Modal>("");
   return (
     <>
-      <div ref={parent}>
-        {openModal === "RSVP" ? (
-          <ModalRSVP />
-        ) : openModal === "Contact" ? (
-          <ModalContact />
-        ) : openModal === "Location" ? (
-          <ModalLocation />
-        ) : (
-          <></>
-        )}
-      </div>
-
-      <div className="btm-nav btm-nav-md mx-auto w-full max-w-[400px]">
+      <div className="btm-nav btm-nav-md z-10 mx-auto w-full max-w-[400px] border border-t-gray-300">
         <button
-          className="text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active"
+          className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
+            openModal === "RSVP" ? "text-primary" : ""
+          }`}
           onClick={() =>
             openModal !== "RSVP" ? setOpenModal("RSVP") : setOpenModal("")
           }
@@ -203,7 +206,9 @@ export const NavigationBar = () => {
           <span className="btm-nav-label">RSVP</span>
         </button>
         <button
-          className="text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active"
+          className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
+            openModal === "Contact" ? "text-primary" : ""
+          }`}
           onClick={() =>
             openModal !== "Contact" ? setOpenModal("Contact") : setOpenModal("")
           }
@@ -212,7 +217,9 @@ export const NavigationBar = () => {
           <span className="btm-nav-label">Hubungi</span>
         </button>
         <button
-          className="text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active"
+          className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
+            openModal === "Location" ? "text-primary" : ""
+          }`}
           onClick={() =>
             openModal !== "Location"
               ? setOpenModal("Location")
@@ -222,39 +229,212 @@ export const NavigationBar = () => {
           <IoLocationOutline />
           <span className="btm-nav-label">Lokasi</span>
         </button>
-        <button className="text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active">
+        <button
+          className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
+            openModal === "Calendar" ? "text-primary" : ""
+          }`}
+          onClick={() =>
+            openModal !== "Calendar"
+              ? setOpenModal("Calendar")
+              : setOpenModal("")
+          }
+        >
           <IoCalendarOutline />
           <span className="btm-nav-label">Kalendar</span>
         </button>
-        <button className="text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active">
+        <button
+          className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
+            openModal === "Music" ? "text-primary" : ""
+          }`}
+          onClick={() =>
+            openModal !== "Music" ? setOpenModal("Music") : setOpenModal("")
+          }
+        >
           <IoMusicalNotesOutline />
           <span className="btm-nav-label">Musik</span>
         </button>
       </div>
+      <ModalRSVP isOpen={openModal === "RSVP"} setIsOpen={setOpenModal} />
+      <ModalRSVPYes isOpen={openModal === "RSVPYes"} setIsOpen={setOpenModal} />
+      <ModalRSVPNo isOpen={openModal === "RSVPNo"} setIsOpen={setOpenModal} />
+      <ModalContact isOpen={openModal === "Contact"} />
+      <ModalLocation isOpen={openModal === "Location"} />
+      <ModalCalendar isOpen={openModal === "Calendar"} />
+      <ModalMusic isOpen={openModal === "Music"} />
     </>
   );
 };
 
-const ModalRSVP = () => {
+const ModalRSVP = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<Modal>>;
+}) => {
   return (
-    <div className="fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary text-white">
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-40"
+      }`}
+    >
       <div className="flex items-center justify-center gap-5 p-5">
-        <div className="btn-ghost flex w-20 cursor-pointer flex-col items-center gap-1 rounded-md border p-2">
+        <button
+          className="btn-ghost flex w-20 cursor-pointer flex-col items-center gap-1 rounded-md border p-2"
+          onClick={() => setIsOpen("RSVPYes")}
+        >
           <FaRegCalendarCheck className="text-4xl" />
           <h6 className="text-sm">Hadir</h6>
-        </div>
-        <div className="btn-ghost flex w-20 cursor-pointer flex-col items-center gap-1 rounded-md border p-2">
+        </button>
+        <button
+          className="btn-ghost flex w-20 cursor-pointer flex-col items-center gap-1 rounded-md border p-2"
+          onClick={() => setIsOpen("RSVPNo")}
+        >
           <FaRegCalendarTimes className="text-4xl" />
           <h6 className="text-sm">Tak Hadir</h6>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const ModalRSVPYes = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<Modal>>;
+}) => {
+  return (
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-[30rem]"
+      }`}
+    >
+      <div className="flex flex-col items-center justify-center gap-2 p-5">
+        <h1 className="text-md font-semibold text-white">Hadir</h1>
+        <div className="divider my-0 px-5"></div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text text-white">Nama</span>
+          </label>
+          <input
+            type="text"
+            placeholder="eg: Shahrin"
+            className="input-bordered input input-sm w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text text-white">Jumlah Kehadiran</span>
+          </label>
+          <select className="select-bordered select select-sm w-full max-w-xs">
+            {Array.from(Array(10).keys()).map((num) => (
+              <option key={num + 1}>{num + 1} orang</option>
+            ))}
+          </select>
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text text-white">Ucapan</span>
+          </label>
+          <textarea
+            className="textarea-bordered textarea h-24"
+            placeholder="eg: Semoga berbahagia!"
+          ></textarea>
+        </div>
+        <div className="flex gap-2 pt-5">
+          <button
+            className="btn-ghost btn-md btn border border-white text-white"
+            onClick={() => {
+              setIsOpen("");
+              toast.success("Terima kasih atas maklum balas 😊");
+            }}
+          >
+            Hantar
+          </button>
+          <button
+            className="btn-ghost btn-md btn border border-white text-white"
+            onClick={() => {
+              setIsOpen("");
+              toast.success("Terima kasih atas maklum balas 😊");
+            }}
+          >
+            Batal
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-const ModalContact = () => {
+const ModalRSVPNo = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<Modal>>;
+}) => {
   return (
-    <div className="fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary text-white">
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-[30rem]"
+      }`}
+    >
+      <div className="flex flex-col items-center justify-center gap-2 p-5">
+        <h1 className="text-md font-semibold text-white">Tidak Hadir</h1>
+        <div className="divider my-0 px-5"></div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text text-white">Nama</span>
+          </label>
+          <input
+            type="text"
+            placeholder="eg: Shahrin"
+            className="input-bordered input input-sm w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text text-white">Ucapan</span>
+          </label>
+          <textarea
+            className="textarea-bordered textarea h-24"
+            placeholder="eg: Semoga berbahagia!"
+          ></textarea>
+        </div>
+        <div className="flex gap-2 pt-5">
+          <button
+            className="btn-ghost btn-md btn border border-white text-white"
+            onClick={() => {
+              setIsOpen("");
+              toast.success("Terima kasih atas maklum balas 😊");
+            }}
+          >
+            Hantar
+          </button>
+          <button
+            className="btn-ghost btn-md btn border border-white text-white"
+            onClick={() => {
+              setIsOpen("");
+              toast.success("Terima kasih atas maklum balas 😊");
+            }}
+          >
+            Batal
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-40"
+      }`}
+    >
       <div className="flex flex-col justify-center gap-10 p-5">
         <div className="flex items-center gap-2">
           <h6 className="grow text-sm">Nama (Hubungan)</h6>
@@ -279,20 +459,75 @@ const ModalContact = () => {
   );
 };
 
-const ModalLocation = () => {
+const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
   return (
-    <div className="fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary text-white">
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-40"
+      }`}
+    >
       <div className="flex flex-col justify-center gap-10 p-5">
         <div className="flex items-center gap-3">
           <FaMapMarkerAlt className="text-2xl" />
           <h6 className="grow text-sm">Google Maps</h6>
-          <button className="btn-ghost btn-sm btn uppercase">Buka</button>
+          <button className="btn-ghost btn-sm btn border border-white uppercase">
+            Buka
+          </button>
         </div>
         <div className="flex items-center gap-3">
           <FaWaze className="text-2xl" />
           <h6 className="grow text-sm">Waze</h6>
-          <button className="btn-ghost btn-sm btn uppercase">Buka</button>
+          <button className="btn-ghost btn-sm btn border border-white uppercase">
+            Buka
+          </button>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-40"
+      }`}
+    >
+      <div className="flex flex-col justify-center gap-10 p-5">
+        <div className="flex items-center gap-3">
+          <IoLogoGoogle className="text-2xl" />
+          <h6 className="grow text-sm">Google Calendar</h6>
+          <button className="btn-ghost btn-sm btn border border-white uppercase ">
+            Simpan
+          </button>
+        </div>
+        <div className="flex items-center gap-3">
+          <IoLogoApple className="text-2xl" />
+          <h6 className="grow text-sm">Apple Calendar</h6>
+          <button className="btn-ghost btn-sm btn border border-white uppercase">
+            Simpan
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ModalMusic = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <div
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+        isOpen ? "" : "translate-y-[240px]"
+      }`}
+    >
+      <div className="p-5">
+        <iframe
+          src="https://www.youtube.com/embed/YAJ-NrRc8v4?autoplay=1&mute=1&loop=1"
+          title="YouTube video player"
+          allow="autoplay"
+          width={"100%"}
+          height={"200px"}
+        ></iframe>
       </div>
     </div>
   );

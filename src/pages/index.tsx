@@ -274,7 +274,7 @@ const ModalRSVP = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -307,7 +307,7 @@ const ModalRSVPYes = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -377,7 +377,7 @@ const ModalRSVPNo = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -431,7 +431,7 @@ const ModalRSVPNo = ({
 const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -462,7 +462,7 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
 const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -489,7 +489,7 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
 const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -516,7 +516,7 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
 const ModalMusic = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[240px]"
       }`}
     >

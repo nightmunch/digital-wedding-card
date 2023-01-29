@@ -149,8 +149,8 @@ export const IntroductionPage = ({
 
 export const TentativePage = () => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-3 px-10 pb-16">
-      <div className="flex flex-col items-center justify-center gap-5">
+    <div className="flex h-screen snap-center flex-col items-center justify-center px-10 pb-16">
+      <div className="flex flex-col items-center justify-center gap-3">
         <h6 className="font-serif text-sm font-semibold uppercase">
           Atur Cara Majlis
         </h6>
@@ -167,7 +167,7 @@ export const TentativePage = () => {
           <h6 className="text-sm">12:30 PM - 1:00 PM</h6>
         </div>
         <div className="divider my-0"></div>
-        <div className="flex flex-col items-center justify-center gap-3 text-xs sm:text-sm">
+        <div className="flex flex-col items-center justify-center gap-5 text-xs sm:text-sm">
           <h6 className="font-serif text-sm font-semibold uppercase">
             SOP Covid-19
           </h6>
@@ -190,7 +190,7 @@ export const TentativePage = () => {
               perjalanan majlis.
             </li>
           </ul>
-          <h6 className="text-justify font-serif text-xs sm:text-sm">
+          <h6 className="text-center  font-serif text-xs sm:text-sm">
             Kerjasama daripada anda amatlah kami hargai. Terima kasih
           </h6>
         </div>

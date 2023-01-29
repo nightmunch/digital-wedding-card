@@ -574,6 +574,7 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
 const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
   const googleCalendar =
     "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG0wN29nbG8wdmRscGljYmgxc2tmM3A2OWIgMGRmZTMwNTE3ODExY2JiZDcxNzNkODc3MjNjYTNlYmFiY2M4Yzc1NzEzNWIwMDhmZDZmZWJlMTk3ZWZmMDYxNEBn&tmsrc=0dfe30517811cbbd7173d87723ca3ebabcc8c757135b008fd6febe197eff0614%40group.calendar.google.com";
+  //https://ical.marudot.com/
   const appleCalendar = "shahrinaimi.ics";
   return (
     <div

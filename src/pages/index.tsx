@@ -18,11 +18,12 @@ import {
   IoLogoGoogle,
   IoLogoApple,
 } from "react-icons/io5";
-import type { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { api } from "../utils/api";
+import Countdown from "../components/Countdown";
 
 type Modal =
   | ""
@@ -73,6 +74,7 @@ const Home: NextPage = () => {
           alamat={alamat}
         />
         <TentativePage />
+        <WishesPage />
       </div>
       <NavigationBar />
     </>
@@ -81,7 +83,7 @@ const Home: NextPage = () => {
 
 export default Home;
 
-export const TitlePage = ({
+const TitlePage = ({
   pasangan1,
   pasangan2,
   tarikh,
@@ -159,7 +161,7 @@ export const IntroductionPage = ({
   );
 };
 
-export const TentativePage = () => {
+const TentativePage = () => {
   return (
     <div className="flex h-screen snap-center flex-col items-center justify-center px-10 pb-16">
       <div className="flex flex-col items-center justify-center gap-3">
@@ -211,7 +213,26 @@ export const TentativePage = () => {
   );
 };
 
-export const NavigationBar = () => {
+const WishesPage = () => {
+  return (
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
+      <div className="flex flex-col items-center gap-2">
+        <h1 className="font-serif text-sm font-semibold uppercase">
+          Countdown
+        </h1>
+        <Countdown targetDate="2023-08-27T10:30:00" />
+      </div>
+      <div className="flex w-full flex-col items-center gap-2">
+        <h1 className="font-serif text-sm font-semibold uppercase">Ucapan</h1>
+        <div className="h-[calc(100vh/2)] w-full border border-slate-200">
+          <label htmlFor="">test</label>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const NavigationBar = () => {
   const [openModal, setOpenModal] = useState<Modal>("");
   return (
     <>

@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import Head from "next/head";
 
 import { IoIosMailOpen } from "react-icons/io";
 import {
@@ -17,7 +18,8 @@ import {
   IoLogoGoogle,
   IoLogoApple,
 } from "react-icons/io5";
-import { Dispatch, SetStateAction, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { api } from "../utils/api";
@@ -33,8 +35,8 @@ type Modal =
   | "RSVPNo";
 
 const Home: NextPage = () => {
-  const pasangan1 = "shahrin";
-  const pasangan2 = "aimi";
+  const pasangan1 = "Shahrin";
+  const pasangan2 = "Aimi";
   const pasangan1_full = "Shahrin Amin";
   const pasangan2_full = "Aimi Umairah";
   const bapa = "Sharifudin bin Ghazalli";
@@ -45,6 +47,16 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>
+          {pasangan1} x {pasangan2}
+        </title>
+        <meta
+          name="description"
+          content={`Walimatul Urus - ${pasangan1} x ${pasangan2}`}
+        />
+        <link rel="icon" href="white-heart.gif" />
+      </Head>
       <Toaster />
       <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
         <TitlePage

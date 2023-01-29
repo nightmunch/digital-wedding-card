@@ -17,8 +17,10 @@ import {
   IoLogoGoogle,
   IoLogoApple,
 } from "react-icons/io5";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+
+import { api } from "../utils/api";
 
 type Modal =
   | ""
@@ -274,7 +276,7 @@ const ModalRSVP = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -305,6 +307,10 @@ const ModalRSVPYes = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<Modal>>;
 }) => {
+  const sendRSVP = api.rsvp.sendrsvp.useMutation({});
+  const [name, setName] = useState("");
+  const [inviting, setInviting] = useState(1);
+  const [message, setMessage] = useState("");
   return (
     <div
       className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -312,41 +318,68 @@ const ModalRSVPYes = ({
       }`}
     >
       <div className="flex flex-col items-center justify-center gap-2 p-5">
-        <h1 className="text-md font-semibold text-white">Hadir</h1>
+        <h1 className="text-md font-semibold text-base-content">Hadir</h1>
         <div className="divider my-0 px-5"></div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text text-white">Nama</span>
+            <span className="label-text text-base-content">Nama</span>
           </label>
           <input
             type="text"
             placeholder="eg: Shahrin"
             className="input-bordered input input-sm w-full max-w-xs"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text text-white">Jumlah Kehadiran</span>
+            <span className="label-text text-base-content">
+              Jumlah Kehadiran
+            </span>
           </label>
-          <select className="select-bordered select select-sm w-full max-w-xs">
+          <select
+            className="select-bordered select select-sm w-full max-w-xs"
+            value={inviting}
+            onChange={(e) => setInviting(Number(e.target.value))}
+          >
             {Array.from(Array(10).keys()).map((num) => (
-              <option key={num + 1}>{num + 1} orang</option>
+              <option key={num + 1} value={num + 1}>
+                {num + 1} orang
+              </option>
             ))}
           </select>
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text text-white">Ucapan</span>
+            <span className="label-text text-base-content">Ucapan</span>
           </label>
           <textarea
             className="textarea-bordered textarea h-24"
             placeholder="eg: Semoga berbahagia!"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
         <div className="flex gap-2 pt-5">
           <button
-            className="btn-ghost btn-md btn border border-white text-white"
+            className="btn-ghost btn-md btn border border-base-content text-base-content"
             onClick={() => {
+              sendRSVP
+                .mutateAsync({
+                  attendance: true,
+                  name: name,
+                  inviting: inviting,
+                  message: message,
+                })
+                .then(() => {
+                  setName("");
+                  setInviting(1);
+                  setMessage("");
+                })
+                .catch((e) => {
+                  console.log(e);
+                });
               setIsOpen("");
               toast.success("Terima kasih atas maklum balas 😊");
             }}
@@ -354,10 +387,9 @@ const ModalRSVPYes = ({
             Hantar
           </button>
           <button
-            className="btn-ghost btn-md btn border border-white text-white"
+            className="btn-ghost btn-md btn border border-base-content text-base-content"
             onClick={() => {
               setIsOpen("");
-              toast.success("Terima kasih atas maklum balas 😊");
             }}
           >
             Batal
@@ -375,6 +407,9 @@ const ModalRSVPNo = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<Modal>>;
 }) => {
+  const sendRSVP = api.rsvp.sendrsvp.useMutation({});
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   return (
     <div
       className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -382,31 +417,48 @@ const ModalRSVPNo = ({
       }`}
     >
       <div className="flex flex-col items-center justify-center gap-2 p-5">
-        <h1 className="text-md font-semibold text-white">Tidak Hadir</h1>
+        <h1 className="text-md font-semibold text-base-content">Tidak Hadir</h1>
         <div className="divider my-0 px-5"></div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text text-white">Nama</span>
+            <span className="label-text text-base-content">Nama</span>
           </label>
           <input
             type="text"
             placeholder="eg: Shahrin"
             className="input-bordered input input-sm w-full max-w-xs"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text text-white">Ucapan</span>
+            <span className="label-text text-base-content">Ucapan</span>
           </label>
           <textarea
             className="textarea-bordered textarea h-24"
             placeholder="eg: Semoga berbahagia!"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           ></textarea>
         </div>
         <div className="flex gap-2 pt-5">
           <button
-            className="btn-ghost btn-md btn border border-white text-white"
+            className="btn-ghost btn-md btn border border-base-content text-base-content"
             onClick={() => {
+              sendRSVP
+                .mutateAsync({
+                  attendance: false,
+                  name: name,
+                  message: message,
+                })
+                .then(() => {
+                  setName("");
+                  setMessage("");
+                })
+                .catch((e) => {
+                  console.log(e);
+                });
               setIsOpen("");
               toast.success("Terima kasih atas maklum balas 😊");
             }}
@@ -414,10 +466,9 @@ const ModalRSVPNo = ({
             Hantar
           </button>
           <button
-            className="btn-ghost btn-md btn border border-white text-white"
+            className="btn-ghost btn-md btn border border-base-content text-base-content"
             onClick={() => {
               setIsOpen("");
-              toast.success("Terima kasih atas maklum balas 😊");
             }}
           >
             Batal
@@ -431,7 +482,7 @@ const ModalRSVPNo = ({
 const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -462,7 +513,7 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
 const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -470,14 +521,14 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
         <div className="flex items-center gap-3">
           <FaMapMarkerAlt className="text-2xl" />
           <h6 className="grow text-sm">Google Maps</h6>
-          <button className="btn-ghost btn-sm btn border border-white uppercase">
+          <button className="btn-ghost btn-sm btn border border-base-content uppercase">
             Buka
           </button>
         </div>
         <div className="flex items-center gap-3">
           <FaWaze className="text-2xl" />
           <h6 className="grow text-sm">Waze</h6>
-          <button className="btn-ghost btn-sm btn border border-white uppercase">
+          <button className="btn-ghost btn-sm btn border border-base-content uppercase">
             Buka
           </button>
         </div>
@@ -489,7 +540,7 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
 const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -497,14 +548,14 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
         <div className="flex items-center gap-3">
           <IoLogoGoogle className="text-2xl" />
           <h6 className="grow text-sm">Google Calendar</h6>
-          <button className="btn-ghost btn-sm btn border border-white uppercase ">
+          <button className="btn-ghost btn-sm btn border border-base-content uppercase ">
             Simpan
           </button>
         </div>
         <div className="flex items-center gap-3">
           <IoLogoApple className="text-2xl" />
           <h6 className="grow text-sm">Apple Calendar</h6>
-          <button className="btn-ghost btn-sm btn border border-white uppercase">
+          <button className="btn-ghost btn-sm btn border border-base-content uppercase">
             Simpan
           </button>
         </div>
@@ -516,7 +567,7 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
 const ModalMusic = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-white backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[240px]"
       }`}
     >

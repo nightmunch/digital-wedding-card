@@ -61,8 +61,8 @@ const Home: NextPage = () => {
           alamat={alamat}
         />
         <TentativePage />
-        <NavigationBar />
       </div>
+      <NavigationBar />
     </>
   );
 };
@@ -79,7 +79,7 @@ export const TitlePage = ({
   tarikh: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5">
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 pb-16">
       <h6 className="text-sm uppercase">Walimatul Urus</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="aetrina text-5xl capitalize text-primary">
@@ -111,7 +111,7 @@ export const IntroductionPage = ({
   alamat: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10">
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="font-serif text-lg">{bapa}</h6>
@@ -149,7 +149,7 @@ export const IntroductionPage = ({
 
 export const TentativePage = () => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10">
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-3 px-10 pb-16">
       <div className="flex flex-col items-center justify-center gap-5">
         <h6 className="font-serif text-sm font-semibold uppercase">
           Atur Cara Majlis
@@ -166,8 +166,8 @@ export const TentativePage = () => {
           <h6 className="text-sm">Makan Beradab & Potong Kek:</h6>
           <h6 className="text-sm">12:30 PM - 1:00 PM</h6>
         </div>
-        <div className="divider"></div>
-        <div className="flex flex-col items-center justify-center gap-3">
+        <div className="divider my-0"></div>
+        <div className="flex flex-col items-center justify-center gap-3 text-xs sm:text-sm">
           <h6 className="font-serif text-sm font-semibold uppercase">
             SOP Covid-19
           </h6>
@@ -190,7 +190,7 @@ export const TentativePage = () => {
               perjalanan majlis.
             </li>
           </ul>
-          <h6 className="text-justify font-serif text-sm">
+          <h6 className="text-justify font-serif text-xs sm:text-sm">
             Kerjasama daripada anda amatlah kami hargai. Terima kasih
           </h6>
         </div>
@@ -284,7 +284,7 @@ const ModalRSVP = ({
 }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -321,7 +321,7 @@ const ModalRSVPYes = ({
   const [message, setMessage] = useState("");
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -420,7 +420,7 @@ const ModalRSVPNo = ({
   const [message, setMessage] = useState("");
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -502,7 +502,7 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
   ];
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -543,7 +543,7 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
     "https://ul.waze.com/ul?place=ChIJobTM8WlPzDER53sfwjkQ008&ll=3.15588550%2C101.59348070&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location";
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -578,7 +578,7 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
   const appleCalendar = "shahrinaimi.ics";
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -609,7 +609,7 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
 const ModalMusic = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[240px]"
       }`}
     >

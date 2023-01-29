@@ -16,6 +16,6 @@ export const rsvpRouter = createTRPCRouter({
       await ctx.prisma.rsvp.create({ data: input });
     }),
   getall: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.rsvp.findMany();
+    return ctx.prisma.rsvp.findMany({ orderBy: { created_at: "desc" } });
   }),
 });

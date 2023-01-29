@@ -240,7 +240,7 @@ const WishesPage = () => {
       </div>
       <div className="flex w-full flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">Ucapan</h1>
-        <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-slate-200">
+        <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-slate-200 p-5">
           {getAllRSVP.data?.map((rsvp) => (
             <div className="chat chat-start" key={rsvp.id}>
               <div className="chat-header">

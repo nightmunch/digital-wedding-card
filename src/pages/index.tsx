@@ -53,9 +53,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>
-          {pasangan1} x {pasangan2}
-        </title>
+        <title>Shahrin x Aimi</title>
         <meta
           name="description"
           content={`Walimatul Urus - ${pasangan1} x ${pasangan2}`}

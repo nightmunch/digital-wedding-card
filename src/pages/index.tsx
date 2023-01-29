@@ -25,6 +25,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { api } from "../utils/api";
 import Countdown from "../components/Countdown";
 
+import { atom, useAtom } from "jotai";
+
 type Modal =
   | ""
   | "RSVP"
@@ -34,6 +36,8 @@ type Modal =
   | "Music"
   | "RSVPYes"
   | "RSVPNo";
+
+const fetchRSVPAtom = atom<boolean>(false);
 
 const Home: NextPage = () => {
   const pasangan1 = "Shahrin";
@@ -214,6 +218,18 @@ const TentativePage = () => {
 };
 
 const WishesPage = () => {
+  const [fetchRSVP, setFetchRSVP] = useAtom(fetchRSVPAtom);
+  const getAllRSVP = api.rsvp.getall.useQuery();
+
+  useEffect(() => {
+    if (fetchRSVP) {
+      getAllRSVP
+        .refetch()
+        .then(() => setFetchRSVP(false))
+        .catch((e) => console.log(e));
+    }
+  }, [fetchRSVP, getAllRSVP, setFetchRSVP]);
+
   return (
     <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
       <div className="flex flex-col items-center gap-2">
@@ -224,8 +240,24 @@ const WishesPage = () => {
       </div>
       <div className="flex w-full flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">Ucapan</h1>
-        <div className="h-[calc(100vh/2)] w-full border border-slate-200">
-          <label htmlFor="">test</label>
+        <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-slate-200">
+          {getAllRSVP.data?.map((rsvp) => (
+            <div className="chat chat-start" key={rsvp.id}>
+              <div className="chat-header">
+                {rsvp.name}
+                <time className="text-xs opacity-50">
+                  {" "}
+                  -{" "}
+                  {rsvp.created_at.toLocaleString("en-GB", {
+                    timeZone: "Asia/Kuala_Lumpur",
+                  })}
+                </time>
+              </div>
+              <div className="chat-bubble chat-bubble-primary min-h-0 text-sm">
+                {rsvp.message}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -352,6 +384,8 @@ const ModalRSVPYes = ({
   const [name, setName] = useState("");
   const [inviting, setInviting] = useState(1);
   const [message, setMessage] = useState("");
+
+  const [, setFetchRSVP] = useAtom(fetchRSVPAtom);
   return (
     <div
       className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -417,6 +451,7 @@ const ModalRSVPYes = ({
                   setName("");
                   setInviting(1);
                   setMessage("");
+                  setFetchRSVP(true);
                 })
                 .catch((e) => {
                   console.log(e);
@@ -451,6 +486,8 @@ const ModalRSVPNo = ({
   const sendRSVP = api.rsvp.sendrsvp.useMutation({});
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+
+  const [, setFetchRSVP] = useAtom(fetchRSVPAtom);
   return (
     <div
       className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -496,6 +533,7 @@ const ModalRSVPNo = ({
                 .then(() => {
                   setName("");
                   setMessage("");
+                  setFetchRSVP(true);
                 })
                 .catch((e) => {
                   console.log(e);

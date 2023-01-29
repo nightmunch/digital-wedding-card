@@ -56,9 +56,10 @@ model VerificationToken {
 }
 
 model Rsvp {
-  id         String  @id @default(cuid())
+  id         String   @id @default(cuid())
   name       String
   attendance Boolean
   inviting   Int?
   message    String
+  created_at DateTime @default(now())
 }

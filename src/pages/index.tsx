@@ -33,24 +33,28 @@ type Modal =
   | "RSVPNo";
 
 const Home: NextPage = () => {
-  const lelaki = "shahrin";
-  const perempuan = "aimi";
-  const lelaki_full = "Shahrin Amin";
-  const perempuan_full = "Aimi Umairah";
+  const pasangan1 = "shahrin";
+  const pasangan2 = "aimi";
+  const pasangan1_full = "Shahrin Amin";
+  const pasangan2_full = "Aimi Umairah";
   const bapa = "Sharifudin bin Ghazalli";
   const ibu = "Zurinah binti Jaa'far";
   const tarikh = "Ahad, 27 Ogos 2023";
   const alamat =
-    "80 jalan desiran bayu 1 taman desiran bayu. 53300 Setapak KL WP";
+    "F55, Jln Pju 5/20e Pju 5, Encorp Strand Mall, Kota Damansara, 47810 Petaling Jaya, Selangor";
 
   return (
     <>
       <Toaster />
       <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
-        <TitlePage lelaki={lelaki} perempuan={perempuan} tarikh={tarikh} />
+        <TitlePage
+          pasangan1={pasangan1}
+          pasangan2={pasangan2}
+          tarikh={tarikh}
+        />
         <IntroductionPage
-          lelaki={lelaki_full}
-          perempuan={perempuan_full}
+          pasangan1={pasangan1_full}
+          pasangan2={pasangan2_full}
           bapa={bapa}
           ibu={ibu}
           tarikh={tarikh}
@@ -66,22 +70,24 @@ const Home: NextPage = () => {
 export default Home;
 
 export const TitlePage = ({
-  lelaki,
-  perempuan,
+  pasangan1,
+  pasangan2,
   tarikh,
 }: {
-  lelaki: string;
-  perempuan: string;
+  pasangan1: string;
+  pasangan2: string;
   tarikh: string;
 }) => {
   return (
     <div className="flex h-screen snap-center flex-col items-center justify-center gap-5">
       <h6 className="text-sm uppercase">Walimatul Urus</h6>
       <div className="flex flex-col items-center justify-center">
-        <h6 className="aetrina text-5xl capitalize text-primary">{lelaki}</h6>
+        <h6 className="aetrina text-5xl capitalize text-primary">
+          {pasangan1}
+        </h6>
         <h6 className="aetrina text-5xl capitalize">&</h6>
         <h6 className="aetrina text-5xl capitalize text-primary">
-          {perempuan}
+          {pasangan2}
         </h6>
       </div>
       <h6 className="text-sm uppercase">{tarikh}</h6>
@@ -90,15 +96,15 @@ export const TitlePage = ({
 };
 
 export const IntroductionPage = ({
-  lelaki,
-  perempuan,
+  pasangan1,
+  pasangan2,
   bapa,
   ibu,
   tarikh,
   alamat,
 }: {
-  lelaki: string;
-  perempuan: string;
+  pasangan1: string;
+  pasangan2: string;
   bapa: string;
   ibu: string;
   tarikh: string;
@@ -120,10 +126,12 @@ export const IntroductionPage = ({
         <h6 className="text-sm">hadir ke majlis perkahwinan anakanda kami</h6>
       </div>
       <div className="flex flex-col items-center justify-center">
-        <h6 className="aetrina text-2xl font-medium capitalize ">{lelaki}</h6>
+        <h6 className="aetrina text-2xl font-medium capitalize ">
+          {pasangan1}
+        </h6>
         <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
         <h6 className="aetrina text-2xl font-medium capitalize ">
-          {perempuan}
+          {pasangan2}
         </h6>
       </div>
       <div className="divider"></div>
@@ -480,6 +488,18 @@ const ModalRSVPNo = ({
 };
 
 const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
+  const contactList = [
+    {
+      name: "Sharifudin Ghazalli",
+      relation: "Bapa",
+      phone_num: "601110006500",
+    },
+    {
+      name: "Shahrin Amin",
+      relation: "Pengantin Lelaki",
+      phone_num: "601110400110",
+    },
+  ];
   return (
     <div
       className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -487,30 +507,40 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
       }`}
     >
       <div className="flex flex-col justify-center gap-10 p-5">
-        <div className="flex items-center gap-2">
-          <h6 className="grow text-sm">Nama (Hubungan)</h6>
-          <button className="btn-ghost btn-square btn-sm btn">
-            <FaWhatsapp className="text-2xl" />
-          </button>
-          <button className="btn-ghost btn-square btn-sm btn">
-            <FaPhoneAlt className="text-xl" />
-          </button>
-        </div>
-        <div className="flex items-center gap-2">
-          <h6 className="grow text-sm">Nama (Hubungan)</h6>
-          <button className="btn-ghost btn-square btn-sm btn">
-            <FaWhatsapp className="text-2xl" />
-          </button>
-          <button className="btn-ghost btn-square btn-sm btn">
-            <FaPhoneAlt className="text-xl" />
-          </button>
-        </div>
+        {contactList.map((contact) => (
+          <div className="flex items-center gap-2" key={contact.name}>
+            <h6 className="grow text-sm">
+              {contact.name} ({contact.relation})
+            </h6>
+            <button className="btn-ghost btn-square btn-sm btn">
+              <a
+                href={`https://api.whatsapp.com/send?phone=${contact.phone_num}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaWhatsapp className="text-2xl" />
+              </a>
+            </button>
+            <button className="btn-ghost btn-square btn-sm btn">
+              <a
+                href={`tel:${contact.phone_num}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaPhoneAlt className="text-xl" />
+              </a>
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
 const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
+  const googleMaps = "https://goo.gl/maps/VJik9JnbCEzSmLBg8";
+  const waze =
+    "https://ul.waze.com/ul?place=ChIJobTM8WlPzDER53sfwjkQ008&ll=3.15588550%2C101.59348070&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location";
   return (
     <div
       className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -522,14 +552,18 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
           <FaMapMarkerAlt className="text-2xl" />
           <h6 className="grow text-sm">Google Maps</h6>
           <button className="btn-ghost btn-sm btn border border-base-content uppercase">
-            Buka
+            <a href={googleMaps} target="_blank" rel="noreferrer">
+              Buka
+            </a>
           </button>
         </div>
         <div className="flex items-center gap-3">
           <FaWaze className="text-2xl" />
           <h6 className="grow text-sm">Waze</h6>
           <button className="btn-ghost btn-sm btn border border-base-content uppercase">
-            Buka
+            <a href={waze} target="_blank" rel="noreferrer">
+              Buka
+            </a>
           </button>
         </div>
       </div>
@@ -538,6 +572,9 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
 };
 
 const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
+  const googleCalendar =
+    "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG0wN29nbG8wdmRscGljYmgxc2tmM3A2OWIgMGRmZTMwNTE3ODExY2JiZDcxNzNkODc3MjNjYTNlYmFiY2M4Yzc1NzEzNWIwMDhmZDZmZWJlMTk3ZWZmMDYxNEBn&tmsrc=0dfe30517811cbbd7173d87723ca3ebabcc8c757135b008fd6febe197eff0614%40group.calendar.google.com";
+  const appleCalendar = "shahrinaimi.ics";
   return (
     <div
       className={`fixed bottom-16 mx-auto w-full max-w-[400px] bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
@@ -549,14 +586,18 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
           <IoLogoGoogle className="text-2xl" />
           <h6 className="grow text-sm">Google Calendar</h6>
           <button className="btn-ghost btn-sm btn border border-base-content uppercase ">
-            Simpan
+            <a href={googleCalendar} target="_blank" rel="noreferrer">
+              Simpan
+            </a>
           </button>
         </div>
         <div className="flex items-center gap-3">
           <IoLogoApple className="text-2xl" />
           <h6 className="grow text-sm">Apple Calendar</h6>
           <button className="btn-ghost btn-sm btn border border-base-content uppercase">
-            Simpan
+            <a href={appleCalendar} target="_blank" rel="noreferrer">
+              Simpan
+            </a>
           </button>
         </div>
       </div>

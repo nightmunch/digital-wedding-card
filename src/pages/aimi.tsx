@@ -43,35 +43,43 @@ const fetchRSVPAtom = atom<boolean>(false);
 const Home: NextPage = () => {
   const pasangan1 = "Shahrin";
   const pasangan2 = "Aimi";
+  const pasangan3 = "Danial";
+  const pasangan4 = "Amalin";
   const pasangan1_full = "Shahrin Amin";
   const pasangan2_full = "Aimi Umairah";
-  const bapa = "Sharifudin bin Ghazalli";
-  const ibu = "Zurinah binti Jaa'far";
-  const tarikh = "Ahad, 27 Ogos 2023";
+  const pasangan3_full = "Ahmad Danial";
+  const pasangan4_full = "Najihah Amalin";
+  const bapa = "Azfizan Bin Aziz";
+  const ibu = "Siti Rohaya Binti Embong";
+  const tarikh = "Sabtu, 17 Jun 2023";
   const alamat =
-    "F55, Jln Pju 5/20e Pju 5, Encorp Strand Mall, Kota Damansara, 47810 Petaling Jaya, Selangor";
+    "Raia Hotel Penang Lot 5789 & 5790, Kompleks Tabung Haji, Jalan Dato Ismail Hashim, 11900 Bayan Lepas, Penang";
 
   return (
     <>
       <Head>
-        <title>Shahrin x Aimi</title>
+        <title>Raikan Cinta</title>
         <meta
           name="description"
-          content={`Walimatul Urus - ${pasangan1} x ${pasangan2}`}
+          content={`Walimatul Urus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
         />
         <link rel="icon" href="white-heart.gif" />
       </Head>
       <Toaster />
-      <html data-theme="shahrin">
+      <html data-theme="aimi">
         <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
           <TitlePage
             pasangan1={pasangan1}
             pasangan2={pasangan2}
+            pasangan3={pasangan3}
+            pasangan4={pasangan4}
             tarikh={tarikh}
           />
           <IntroductionPage
             pasangan1={pasangan1_full}
             pasangan2={pasangan2_full}
+            pasangan3={pasangan3_full}
+            pasangan4={pasangan4_full}
             bapa={bapa}
             ibu={ibu}
             tarikh={tarikh}
@@ -91,10 +99,14 @@ export default Home;
 const TitlePage = ({
   pasangan1,
   pasangan2,
+  pasangan3,
+  pasangan4,
   tarikh,
 }: {
   pasangan1: string;
   pasangan2: string;
+  pasangan3: string;
+  pasangan4: string;
   tarikh: string;
 }) => {
   return (
@@ -109,6 +121,16 @@ const TitlePage = ({
           {pasangan2}
         </h6>
       </div>
+      <div className="divider mx-10"></div>
+      <div className="flex flex-col items-center justify-center">
+        <h6 className="aetrina text-5xl capitalize text-primary">
+          {pasangan3}
+        </h6>
+        <h6 className="aetrina text-5xl capitalize">&</h6>
+        <h6 className="aetrina text-5xl capitalize text-primary">
+          {pasangan4}
+        </h6>
+      </div>
       <h6 className="text-sm uppercase">{tarikh}</h6>
     </div>
   );
@@ -117,6 +139,8 @@ const TitlePage = ({
 export const IntroductionPage = ({
   pasangan1,
   pasangan2,
+  pasangan3,
+  pasangan4,
   bapa,
   ibu,
   tarikh,
@@ -124,6 +148,8 @@ export const IntroductionPage = ({
 }: {
   pasangan1: string;
   pasangan2: string;
+  pasangan3: string;
+  pasangan4: string;
   bapa: string;
   ibu: string;
   tarikh: string;
@@ -144,14 +170,26 @@ export const IntroductionPage = ({
         </h6>
         <h6 className="text-sm">hadir ke majlis perkahwinan anakanda kami</h6>
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <h6 className="aetrina text-2xl font-medium capitalize ">
-          {pasangan1}
-        </h6>
-        <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
-        <h6 className="aetrina text-2xl font-medium capitalize ">
-          {pasangan2}
-        </h6>
+      <div className="flex text-center">
+        <div className="flex flex-col items-center justify-center">
+          <h6 className="aetrina text-2xl font-medium capitalize ">
+            {pasangan1}
+          </h6>
+          <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
+          <h6 className="aetrina text-2xl font-medium capitalize ">
+            {pasangan2}
+          </h6>
+        </div>
+        <div className="aetrina divider divider-horizontal my-5">dan</div>
+        <div className="flex flex-col items-center justify-center">
+          <h6 className="aetrina text-2xl font-medium capitalize ">
+            {pasangan3}
+          </h6>
+          <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
+          <h6 className="aetrina text-2xl font-medium capitalize ">
+            {pasangan4}
+          </h6>
+        </div>
       </div>
       <div className="divider"></div>
       <div className="flex flex-col items-center justify-center">
@@ -220,7 +258,7 @@ const TentativePage = () => {
 
 const WishesPage = () => {
   const [fetchRSVP, setFetchRSVP] = useAtom(fetchRSVPAtom);
-  const getAllRSVP = api.rsvp.getall.useQuery();
+  const getAllRSVP = api.rsvp2.getall.useQuery();
 
   useEffect(() => {
     if (fetchRSVP) {
@@ -237,7 +275,7 @@ const WishesPage = () => {
         <h1 className="font-serif text-sm font-semibold uppercase">
           Countdown
         </h1>
-        <Countdown targetDate="2023-08-27T10:30:00" />
+        <Countdown targetDate="2023-06-17T10:30:00" />
       </div>
       <div className="flex w-full flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">Ucapan</h1>
@@ -381,7 +419,7 @@ const ModalRSVPYes = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<Modal>>;
 }) => {
-  const sendRSVP = api.rsvp.sendrsvp.useMutation({});
+  const sendRSVP = api.rsvp2.sendrsvp.useMutation({});
   const [name, setName] = useState("");
   const [inviting, setInviting] = useState(1);
   const [message, setMessage] = useState("");
@@ -484,7 +522,7 @@ const ModalRSVPNo = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<Modal>>;
 }) => {
-  const sendRSVP = api.rsvp.sendrsvp.useMutation({});
+  const sendRSVP = api.rsvp2.sendrsvp.useMutation({});
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 

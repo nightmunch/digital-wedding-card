@@ -62,26 +62,27 @@ const Home: NextPage = () => {
         <link rel="icon" href="white-heart.gif" />
       </Head>
       <Toaster />
-      <html data-theme="shahrin">
-        <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
-          <TitlePage
-            pasangan1={pasangan1}
-            pasangan2={pasangan2}
-            tarikh={tarikh}
-          />
-          <IntroductionPage
-            pasangan1={pasangan1_full}
-            pasangan2={pasangan2_full}
-            bapa={bapa}
-            ibu={ibu}
-            tarikh={tarikh}
-            alamat={alamat}
-          />
-          <TentativePage />
-          <WishesPage />
-        </div>
-        <NavigationBar />
-      </html>
+      <div
+        className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50"
+        data-theme="shahrin"
+      >
+        <TitlePage
+          pasangan1={pasangan1}
+          pasangan2={pasangan2}
+          tarikh={tarikh}
+        />
+        <IntroductionPage
+          pasangan1={pasangan1_full}
+          pasangan2={pasangan2_full}
+          bapa={bapa}
+          ibu={ibu}
+          tarikh={tarikh}
+          alamat={alamat}
+        />
+        <TentativePage />
+        <WishesPage />
+      </div>
+      <NavigationBar />
     </>
   );
 };

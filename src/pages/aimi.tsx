@@ -66,30 +66,32 @@ const Home: NextPage = () => {
         <link rel="icon" href="white-heart.gif" />
       </Head>
       <Toaster />
-      <html data-theme="aimi">
-        <div className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50">
-          <TitlePage
-            pasangan1={pasangan1}
-            pasangan2={pasangan2}
-            pasangan3={pasangan3}
-            pasangan4={pasangan4}
-            tarikh={tarikh}
-          />
-          <IntroductionPage
-            pasangan1={pasangan1_full}
-            pasangan2={pasangan2_full}
-            pasangan3={pasangan3_full}
-            pasangan4={pasangan4_full}
-            bapa={bapa}
-            ibu={ibu}
-            tarikh={tarikh}
-            alamat={alamat}
-          />
-          <TentativePage />
-          <WishesPage />
-        </div>
-        <NavigationBar />
-      </html>
+
+      <div
+        className="mx-auto min-h-screen w-full max-w-[400px] scroll-smooth shadow-2xl shadow-gray-600/50"
+        data-theme="aimi"
+      >
+        <TitlePage
+          pasangan1={pasangan1}
+          pasangan2={pasangan2}
+          pasangan3={pasangan3}
+          pasangan4={pasangan4}
+          tarikh={tarikh}
+        />
+        <IntroductionPage
+          pasangan1={pasangan1_full}
+          pasangan2={pasangan2_full}
+          pasangan3={pasangan3_full}
+          pasangan4={pasangan4_full}
+          bapa={bapa}
+          ibu={ibu}
+          tarikh={tarikh}
+          alamat={alamat}
+        />
+        <TentativePage />
+        <WishesPage />
+      </div>
+      <NavigationBar />
     </>
   );
 };

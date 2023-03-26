@@ -110,7 +110,7 @@ const TitlePage = ({
   tarikh: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 pb-16">
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 bg-[url('/aimi-bg.png')] bg-cover pb-16">
       <h6 className="text-sm uppercase">Walimatul Urus</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="aetrina text-5xl capitalize text-primary">

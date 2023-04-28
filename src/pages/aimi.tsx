@@ -207,7 +207,7 @@ export const IntroductionPage = ({
         </div>
       </div>
       <div className="divider"></div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-12">
         <div className="flex flex-col items-center justify-center">
           <h6 className="font-serif text-sm font-semibold uppercase">Tarikh</h6>
           <h6 className="text-sm">{tarikh}</h6>
@@ -276,7 +276,7 @@ const WishesPage = () => {
   }, [fetchRSVP, getAllRSVP, setFetchRSVP]);
 
   return (
-    <div className="flex snap-none flex-col items-center justify-center gap-5 px-10 pb-16 sm:snap-center">
+    <div className="flex snap-none flex-col items-center justify-center gap-12 px-10 pb-16 sm:h-screen sm:snap-center">
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">
           Countdown

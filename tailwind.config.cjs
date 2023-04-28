@@ -8,11 +8,11 @@ module.exports = {
     themes: [
       {
         aimi: {
-          primary: "#7d9929",
-          secondary: "#F9D72F",
+          primary: "#9c994a",
+          secondary: "#d0cdba",
           accent: "#181830",
           neutral: "#181830",
-          "base-100": "#fcfcfa",
+          "base-100": "#f1f1eb",
           info: "#3ABFF8",
           success: "#36D399",
           warning: "#FBBD23",

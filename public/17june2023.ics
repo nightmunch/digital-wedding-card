@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Asia/Shanghai
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Shanghai
+X-LIC-LOCATION:Asia/Shanghai
+BEGIN:STANDARD
+TZNAME:CST
+TZOFFSETFROM:+0800
+TZOFFSETTO:+0800
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20230428T103612Z
+UID:1682678051723-35824@ical.marudot.com
+DTSTART;TZID=Asia/Shanghai:20230617T120000
+DTEND;TZID=Asia/Shanghai:20230617T160000
+SUMMARY:Walimatulurus - Aimi x Shahrin || Danial x Amalin
+DESCRIPTION:Walimatul Urus \n\nAimi Umairah\nx\nShahrin Amin\n\nAhmad Danial\nx\nNajihah Amalin\n\n16 Jun 2023
+LOCATION:Raia Inn Penang\, Lot 5789 & 5790\, Kompleks Tabung Haji\, Jalan Dato Ismail Hashim\, 11900 Bayan Lepas\, Penang\, Malaysia
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Walimatulurus - Aimi x Shahrin || Danial x Amalin
+TRIGGER:-P1W
+END:VALARM
+END:VEVENT
+END:VCALENDAR

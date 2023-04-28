@@ -41,15 +41,15 @@ type Modal =
 const fetchRSVPAtom = atom<boolean>(false);
 
 const Home: NextPage = () => {
-  const pasangan1 = "Shahrin";
-  const pasangan2 = "Aimi";
+  const pasangan1 = "Aimi";
+  const pasangan2 = "Shahrin";
   const pasangan3 = "Danial";
   const pasangan4 = "Amalin";
-  const pasangan1_full = "Shahrin Amin";
-  const pasangan2_full = "Aimi Umairah";
+  const pasangan1_full = "Aimi Umairah";
+  const pasangan2_full = "Shahrin Amin";
   const pasangan3_full = "Ahmad Danial";
   const pasangan4_full = "Najihah Amalin";
-  const bapa = "Azfizan Bin Aziz";
+  const bapa = "Dr. Azfizan Bin Aziz";
   const ibu = "Siti Rohaya Binti Embong";
   const tarikh = "Sabtu, 17 Jun 2023";
   const alamat =
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         <title>Raikan Cinta</title>
         <meta
           name="description"
-          content={`Walimatul Urus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
+          content={`Walimatulurus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
         />
         <link rel="icon" href="white-heart.gif" />
       </Head>
@@ -113,7 +113,7 @@ const TitlePage = ({
 }) => {
   return (
     <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 bg-[url('/aimi-bg.png')] bg-cover bg-center pb-16">
-      <h6 className="text-sm uppercase">Walimatul Urus</h6>
+      <h6 className="text-sm uppercase">Walimatulurus</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="aetrina text-5xl capitalize text-primary">
           {pasangan1}
@@ -161,34 +161,42 @@ export const IntroductionPage = ({
     <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
-        <h6 className="font-serif text-lg">{bapa}</h6>
-        <h6 className="font-serif text-lg">&</h6>
-        <h6 className="font-serif text-lg">{ibu}</h6>
+        <h6 className="font-serif text-lg uppercase">{bapa}</h6>
+        <h6 className="font-serif text-lg uppercase">&</h6>
+        <h6 className="font-serif text-lg uppercase">{ibu}</h6>
       </div>
       <div className="flex flex-col items-center justify-center">
-        <h6 className="text-sm">Dengan segala hormatnya kami menjemput</h6>
-        <h6 className="text-sm">
+        <h6 className="text-center text-sm">
+          Dengan segala hormatnya kami menjemput
+        </h6>
+        <h6 className="text-center text-sm">
           Dato&apos; | Datin | Tuan | Puan | Encik | Cik
         </h6>
-        <h6 className="text-sm">hadir ke majlis perkahwinan anakanda kami</h6>
+        <h6 className="text-center text-sm">
+          dan seisi keluarga hadir ke majlis perkahwinan anakanda kami
+        </h6>
       </div>
       <div className="flex text-center">
         <div className="flex flex-col items-center justify-center">
-          <h6 className="aetrina text-2xl font-medium capitalize ">
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
             {pasangan1}
           </h6>
-          <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
-          <h6 className="aetrina text-2xl font-medium capitalize ">
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
+            &
+          </h6>
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
             {pasangan2}
           </h6>
         </div>
         <div className="aetrina divider divider-horizontal my-5">dan</div>
         <div className="flex flex-col items-center justify-center">
-          <h6 className="aetrina text-2xl font-medium capitalize ">
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
             {pasangan3}
           </h6>
-          <h6 className="aetrina text-2xl font-medium capitalize">&</h6>
-          <h6 className="aetrina text-2xl font-medium capitalize ">
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
+            &
+          </h6>
+          <h6 className="aetrina text-2xl font-medium capitalize text-[#5f7534]">
             {pasangan4}
           </h6>
         </div>
@@ -214,43 +222,32 @@ const TentativePage = () => {
           Atur Cara Majlis
         </h6>
         <div className="flex flex-col items-center justify-center">
-          <h6 className="text-sm">Nikah:</h6>
-          <h6 className="text-sm">11:00 AM</h6>
+          <h6 className="text-sm">Majlis Bermula:</h6>
+          <h6 className="text-sm">12:00 PM</h6>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h6 className="text-sm">Jamuan Makan:</h6>
-          <h6 className="text-sm">12:00 PM - 4:00 PM</h6>
+          <h6 className="text-sm">Ketibaan Pasangan Pengantin:</h6>
+          <h6 className="text-sm">02:00 PM</h6>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h6 className="text-sm">Makan Beradab & Potong Kek:</h6>
-          <h6 className="text-sm">12:30 PM - 1:00 PM</h6>
+          <h6 className="text-sm">Majlis Bersurai:</h6>
+          <h6 className="text-sm">4:00 PM</h6>
         </div>
         <div className="divider my-0"></div>
         <div className="flex flex-col items-center justify-center gap-5 text-xs sm:text-sm">
-          <h6 className="font-serif text-sm font-semibold uppercase">
-            SOP Covid-19
+          <h6 className="font-serif text-2xl font-semibold">
+            بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
           </h6>
-          <ul className="list-outside list-disc pl-4 text-justify">
-            <li>
-              Pastikan anda telah lengkap 2 dos vaksinasi untuk hadir ke majlis.
-            </li>
-            <li>
-              Sila patuhi segala SOP yang diarahkan kerajaan: memakai pelitup
-              muka (mask), scan MySejahtera, memeriksa suhu dan menggunakan
-              &apos;hand sanitizer&apos; sebelum masuk ke pekarangan majlis.
-            </li>
-            <li>
-              Kesihatan semua adalah penting, sila jangan hadirkan diri jika
-              anda berhubung rapat dengan pesakit Covid-19 atau menunjukkan
-              sebarang gejala.
-            </li>
-            <li>
-              Sila patuhi waktu kehadiran yang telah ditetapkan bagi melancarkan
-              perjalanan majlis.
-            </li>
-          </ul>
-          <h6 className="text-center  font-serif text-xs sm:text-sm">
-            Kerjasama daripada anda amatlah kami hargai. Terima kasih
+          <h6 className="text-md text-center italic">
+            &quot;Ya Allah, Satukanlah hati pasangan pengantin ini seperti
+            Engkau satukan hati Adam dan Hawa, Yusuf dan Zulaikha dan seperti
+            Engkau satukan hati Muhammad SAW dan Siti Khadijah. Semoga Allah
+            memberkati dan menghimpunkan mereka kebaikan dan keberkatan di Dunia
+            dan Akhirat&quot;
+          </h6>
+          <h6 className="text-md text-center italic">
+            Semoga Kehadiran Para Jemputan Akan Menyerikan lagi Majlis Kami
+            Serta Diberkati Allah SWT. Insyaa Allah.
           </h6>
         </div>
       </div>
@@ -358,7 +355,7 @@ const NavigationBar = () => {
           <IoCalendarOutline />
           <span className="btm-nav-label">Kalendar</span>
         </button>
-        <button
+        {/* <button
           className={`text-xl transition delay-100 ease-in-out hover:-translate-y-1 hover:text-primary hover:active ${
             openModal === "Music" ? "text-primary" : ""
           }`}
@@ -368,7 +365,7 @@ const NavigationBar = () => {
         >
           <IoMusicalNotesOutline />
           <span className="btm-nav-label">Musik</span>
-        </button>
+        </button> */}
       </div>
       <ModalRSVP isOpen={openModal === "RSVP"} setIsOpen={setOpenModal} />
       <ModalRSVPYes isOpen={openModal === "RSVPYes"} setIsOpen={setOpenModal} />
@@ -376,7 +373,7 @@ const NavigationBar = () => {
       <ModalContact isOpen={openModal === "Contact"} />
       <ModalLocation isOpen={openModal === "Location"} />
       <ModalCalendar isOpen={openModal === "Calendar"} />
-      <ModalMusic isOpen={openModal === "Music"} />
+      {/* <ModalMusic isOpen={openModal === "Music"} /> */}
     </>
   );
 };
@@ -390,7 +387,7 @@ const ModalRSVP = ({
 }) => {
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -429,7 +426,7 @@ const ModalRSVPYes = ({
   const [, setFetchRSVP] = useAtom(fetchRSVPAtom);
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -531,7 +528,7 @@ const ModalRSVPNo = ({
   const [, setFetchRSVP] = useAtom(fetchRSVPAtom);
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[30rem]"
       }`}
     >
@@ -602,19 +599,19 @@ const ModalRSVPNo = ({
 const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
   const contactList = [
     {
-      name: "Sharifudin Ghazalli",
+      name: "Dr. Azfizan",
       relation: "Bapa",
-      phone_num: "601110006500",
+      phone_num: "60194700657",
     },
     {
-      name: "Shahrin Amin",
-      relation: "Pengantin Lelaki",
-      phone_num: "601110400110",
+      name: "Siti Rohaya",
+      relation: "Ibu",
+      phone_num: "60194800657",
     },
   ];
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -650,12 +647,12 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
 };
 
 const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
-  const googleMaps = "https://goo.gl/maps/VJik9JnbCEzSmLBg8";
+  const googleMaps = "https://goo.gl/maps/7vnFUYKQdsXzBe9E8";
   const waze =
-    "https://ul.waze.com/ul?place=ChIJobTM8WlPzDER53sfwjkQ008&ll=3.15588550%2C101.59348070&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location";
+    "https://www.waze.com/en/live-map/directions/raia-inn-penang-bayan-lepas?place=w.65732661.657064466.8708057";
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -685,12 +682,12 @@ const ModalLocation = ({ isOpen }: { isOpen: boolean }) => {
 
 const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
   const googleCalendar =
-    "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG0wN29nbG8wdmRscGljYmgxc2tmM3A2OWIgMGRmZTMwNTE3ODExY2JiZDcxNzNkODc3MjNjYTNlYmFiY2M4Yzc1NzEzNWIwMDhmZDZmZWJlMTk3ZWZmMDYxNEBn&tmsrc=0dfe30517811cbbd7173d87723ca3ebabcc8c757135b008fd6febe197eff0614%40group.calendar.google.com";
+    "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTB0N25xN2NkMGlyODRyaDVnbWFiZDQ4NWogMGRmZTMwNTE3ODExY2JiZDcxNzNkODc3MjNjYTNlYmFiY2M4Yzc1NzEzNWIwMDhmZDZmZWJlMTk3ZWZmMDYxNEBn&tmsrc=0dfe30517811cbbd7173d87723ca3ebabcc8c757135b008fd6febe197eff0614%40group.calendar.google.com";
   //https://ical.marudot.com/
-  const appleCalendar = "shahrinaimi.ics";
+  const appleCalendar = "17june2023.ics";
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-40"
       }`}
     >
@@ -721,7 +718,7 @@ const ModalCalendar = ({ isOpen }: { isOpen: boolean }) => {
 const ModalMusic = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-primary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
+      className={`fixed left-1/2 bottom-16 mx-auto w-full max-w-[400px] -translate-x-1/2 bg-secondary bg-opacity-90 text-base-content backdrop-blur-[2px] transition delay-150 duration-300 ease-in-out ${
         isOpen ? "" : "translate-y-[240px]"
       }`}
     >

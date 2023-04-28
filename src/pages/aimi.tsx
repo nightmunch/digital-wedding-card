@@ -58,11 +58,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Raikan Cinta</title>
-        <meta
-          name="description"
-          content={`Walimatulurus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
-        />
+        <title>{`Walimatulurus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4} | ${tarikh}`}</title>
+        <meta name="description" content="Tekan link untuk lebih lanjut." />
         <link rel="icon" href="white-heart.gif" />
         <meta
           property="og:image"

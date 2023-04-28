@@ -6,9 +6,9 @@ export const config = {
   runtime: "edge",
 };
 
-const image = fetch(new URL("./aimi-metadata.png", import.meta.url)).then(
-  (res) => res.arrayBuffer()
-);
+const image = fetch(
+  new URL("../../../public/aimi-metadata.png", import.meta.url)
+).then((res) => res.arrayBuffer());
 
 export default async function handler() {
   const imageData = (await image) as unknown as string;

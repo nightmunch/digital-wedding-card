@@ -15,12 +15,12 @@ DTSTART:19700101T000000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTAMP:20230428T103612Z
+DTSTAMP:20230428T105135Z
 UID:1682678051723-35824@ical.marudot.com
 DTSTART;TZID=Asia/Shanghai:20230617T120000
 DTEND;TZID=Asia/Shanghai:20230617T160000
 SUMMARY:Walimatulurus - Aimi x Shahrin || Danial x Amalin
-DESCRIPTION:Walimatul Urus \n\nAimi Umairah\nx\nShahrin Amin\n\nAhmad Danial\nx\nNajihah Amalin\n\n16 Jun 2023
+DESCRIPTION:Walimatul Urus \n\nAimi Umairah 🤍 Shahrin Amin \n\n&\n\nAhmad Danial 🤍 Najihah Amalin\n\n17 Jun 2023
 LOCATION:Raia Inn Penang\, Lot 5789 & 5790\, Kompleks Tabung Haji\, Jalan Dato Ismail Hashim\, 11900 Bayan Lepas\, Penang\, Malaysia
 BEGIN:VALARM
 ACTION:DISPLAY

@@ -64,6 +64,7 @@ const Home: NextPage = () => {
           content={`Walimatulurus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
         />
         <link rel="icon" href="white-heart.gif" />
+        <link rel="image_src" href="aimi-metadata.png" />
       </Head>
       <Toaster />
 
@@ -158,7 +159,7 @@ export const IntroductionPage = ({
   alamat: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
+    <div className="flex h-screen snap-center flex-col items-center justify-center gap-1 px-10 pb-16 sm:gap-5">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="font-serif text-lg uppercase">{bapa}</h6>
@@ -173,7 +174,7 @@ export const IntroductionPage = ({
           Dato&apos; | Datin | Tuan | Puan | Encik | Cik
         </h6>
         <h6 className="text-center text-sm">
-          dan seisi keluarga hadir ke majlis perkahwinan anakanda kami
+          hadir ke majlis perkahwinan anakanda kami
         </h6>
       </div>
       <div className="flex text-center">

@@ -163,7 +163,7 @@ export const IntroductionPage = ({
   alamat: string;
 }) => {
   return (
-    <div className="flex snap-none flex-col items-center justify-center gap-1 px-10 pb-16 pt-16 sm:h-screen sm:snap-center sm:gap-5 sm:pt-0">
+    <div className="flex snap-none flex-col items-center justify-center gap-5 px-10 pb-16 pt-16 sm:h-screen sm:snap-center sm:pt-0">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="font-serif text-lg uppercase">{bapa}</h6>
@@ -285,7 +285,7 @@ const WishesPage = () => {
       </div>
       <div className="flex w-full flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">Ucapan</h1>
-        <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-slate-200 p-5">
+        <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-base-200 p-5">
           {getAllRSVP.data?.map((rsvp) => (
             <div className="chat chat-start" key={rsvp.id}>
               <div className="chat-header">

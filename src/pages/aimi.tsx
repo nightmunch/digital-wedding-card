@@ -65,6 +65,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="white-heart.gif" />
         <link rel="image_src" href="aimi-metadata.png" />
+        <meta property="og:image" content="aimi-metadata.png" />
       </Head>
       <Toaster />
 

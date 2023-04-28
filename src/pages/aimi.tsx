@@ -293,10 +293,11 @@ const WishesPage = () => {
                   -{" "}
                   {rsvp.created_at.toLocaleString("en-GB", {
                     timeZone: "Asia/Kuala_Lumpur",
+                    hour12: true,
                   })}
                 </time>
               </div>
-              <div className="chat-bubble chat-bubble-primary min-h-0 text-sm">
+              <div className="chat-bubble chat-bubble-primary min-h-0 text-sm text-base-100">
                 {rsvp.message}
               </div>
             </div>

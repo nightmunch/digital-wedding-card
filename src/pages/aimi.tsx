@@ -64,8 +64,10 @@ const Home: NextPage = () => {
           content={`Walimatulurus - ${pasangan1} x ${pasangan2} dan ${pasangan3} x ${pasangan4}`}
         />
         <link rel="icon" href="white-heart.gif" />
-        <link rel="image_src" href="aimi-metadata.png" />
-        <meta property="og:image" content="aimi-metadata.png" />
+        <meta
+          property="og:image"
+          content="https://wedding.nightmunch.com/api/aimi"
+        />
       </Head>
       <Toaster />
 

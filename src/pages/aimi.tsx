@@ -117,7 +117,7 @@ const TitlePage = ({
   tarikh: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 bg-[url('/aimi-bg.png')] bg-cover bg-center pb-16">
+    <div className="flex h-screen snap-none flex-col items-center justify-center gap-5 bg-[url('/aimi-bg.png')] bg-cover bg-center pb-16 sm:snap-center">
       <h6 className="text-sm uppercase">Walimatulurus</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="aetrina text-5xl capitalize text-primary">
@@ -163,7 +163,7 @@ export const IntroductionPage = ({
   alamat: string;
 }) => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-1 px-10 pb-16 sm:gap-5">
+    <div className="flex h-screen snap-none flex-col items-center justify-center gap-1 px-10 pb-16 sm:snap-center sm:gap-5">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="font-serif text-lg uppercase">{bapa}</h6>
@@ -221,7 +221,7 @@ export const IntroductionPage = ({
 
 const TentativePage = () => {
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center px-10 pb-16">
+    <div className="flex h-screen snap-none flex-col items-center justify-center px-10 pb-16 sm:snap-center">
       <div className="flex flex-col items-center justify-center gap-3">
         <h6 className="font-serif text-sm font-semibold uppercase">
           Atur Cara Majlis
@@ -274,7 +274,7 @@ const WishesPage = () => {
   }, [fetchRSVP, getAllRSVP, setFetchRSVP]);
 
   return (
-    <div className="flex h-screen snap-center flex-col items-center justify-center gap-5 px-10 pb-16">
+    <div className="flex h-screen snap-none flex-col items-center justify-center gap-5 px-10 pb-16 sm:snap-center">
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">
           Countdown

@@ -293,6 +293,8 @@ const WishesPage = () => {
                   -{" "}
                   {rsvp.created_at.toLocaleString("en-GB", {
                     timeZone: "Asia/Kuala_Lumpur",
+                    dateStyle: "long",
+                    timeStyle: "short",
                     hour12: true,
                   })}
                 </time>

@@ -163,7 +163,7 @@ export const IntroductionPage = ({
   alamat: string;
 }) => {
   return (
-    <div className="flex h-screen snap-none flex-col items-center justify-center gap-1 px-10 pb-16 sm:snap-center sm:gap-5">
+    <div className="flex snap-none flex-col items-center justify-center gap-1 px-10 pb-16 pt-16 sm:h-screen sm:snap-center sm:gap-5 sm:pt-0">
       <h6 className="text-sm">Assalamualaikum W.B.T & Salam Sejahtera</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="font-serif text-lg uppercase">{bapa}</h6>
@@ -207,13 +207,15 @@ export const IntroductionPage = ({
         </div>
       </div>
       <div className="divider"></div>
-      <div className="flex flex-col items-center justify-center">
-        <h6 className="font-serif text-sm font-semibold uppercase">Tarikh</h6>
-        <h6 className="text-sm">{tarikh}</h6>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <h6 className="font-serif text-sm font-semibold uppercase">Tempat</h6>
-        <h6 className="text-center text-sm">{alamat}</h6>
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col items-center justify-center">
+          <h6 className="font-serif text-sm font-semibold uppercase">Tarikh</h6>
+          <h6 className="text-sm">{tarikh}</h6>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <h6 className="font-serif text-sm font-semibold uppercase">Tempat</h6>
+          <h6 className="text-center text-sm">{alamat}</h6>
+        </div>
       </div>
     </div>
   );
@@ -221,7 +223,7 @@ export const IntroductionPage = ({
 
 const TentativePage = () => {
   return (
-    <div className="flex h-screen snap-none flex-col items-center justify-center px-10 pb-16 sm:snap-center">
+    <div className="flex snap-none flex-col items-center justify-center px-10 pb-16 sm:h-screen sm:snap-center">
       <div className="flex flex-col items-center justify-center gap-3">
         <h6 className="font-serif text-sm font-semibold uppercase">
           Atur Cara Majlis
@@ -274,7 +276,7 @@ const WishesPage = () => {
   }, [fetchRSVP, getAllRSVP, setFetchRSVP]);
 
   return (
-    <div className="flex h-screen snap-none flex-col items-center justify-center gap-5 px-10 pb-16 sm:snap-center">
+    <div className="flex snap-none flex-col items-center justify-center gap-5 px-10 pb-16 sm:snap-center">
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-serif text-sm font-semibold uppercase">
           Countdown

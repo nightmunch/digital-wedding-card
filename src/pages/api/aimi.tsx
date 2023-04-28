@@ -18,7 +18,7 @@ export default async function handler() {
       <div
         style={{
           display: "flex",
-          background: "#f6f6f6",
+          background: "white",
           width: "100%",
           height: "100%",
           flexDirection: "column",
@@ -30,8 +30,8 @@ export default async function handler() {
       </div>
     ),
     {
-      width: 600,
-      height: 600,
+      width: 700,
+      height: 700,
     }
   );
 }

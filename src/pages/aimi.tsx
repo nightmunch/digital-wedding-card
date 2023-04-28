@@ -65,6 +65,10 @@ const Home: NextPage = () => {
           property="og:image"
           content="https://wedding.nightmunch.com/api/aimi"
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
       </Head>
       <Toaster />
 

@@ -24,23 +24,23 @@ export default async function () {
       >
         <div tw="flex">
           <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8 justify-center">
-            <h2 tw="flex flex-col font-bold tracking-tight text-gray-900 text-center justify-center items-center gap-5">
-              <span tw="text-2xl sm:text-3xl">Anda Dijemput Hadir</span>
-              <span tw="text-3xl sm:text-4xl text-[#5f7534]">
+            <h2 tw="flex flex-col font-bold tracking-tight text-gray-900 text-center justify-center items-center gap-10">
+              <span tw="text-3xl sm:text-4xl">Anda Dijemput Hadir</span>
+              <span tw="text-5xl sm:text-6xl text-[#5f7534]">
                 Aimi 💚 Shahrin
               </span>
-              <span tw="text-3xl sm:text-4xl text-[#5f7534]">
+              <span tw="text-5xl sm:text-6xl text-[#5f7534]">
                 Danial 💚 Amalin
               </span>
-              <span tw="text-xl sm:text-2xl text-gray-600">17 Jun 2023</span>
+              <span tw="text-3xl sm:text-4xl text-gray-600">17 Jun 2023</span>
             </h2>
           </div>
         </div>
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 600,
+      height: 600,
     }
   );
 }

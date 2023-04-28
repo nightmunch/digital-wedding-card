@@ -288,7 +288,7 @@ const WishesPage = () => {
         <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-base-200 p-5">
           {getAllRSVP.data?.map((rsvp) => (
             <div className="chat chat-start" key={rsvp.id}>
-              <div className="chat-header">
+              <div className="chat-header font-medium">
                 {rsvp.name}
                 <time className="text-xs opacity-50">
                   {" "}

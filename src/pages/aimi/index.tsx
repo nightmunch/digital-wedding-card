@@ -23,8 +23,8 @@ import type { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-import { api } from "../utils/api";
-import Countdown from "../components/Countdown";
+import { api } from "../../utils/api";
+import Countdown from "../../components/Countdown";
 
 import { atom, useAtom } from "jotai";
 
@@ -288,22 +288,28 @@ const WishesPage = () => {
         <div className="h-[calc(100vh/2)] w-full overflow-y-auto border border-base-200 p-5">
           {getAllRSVP.data?.map((rsvp) => (
             <div className="chat chat-start" key={rsvp.id}>
-              <div className="chat-header font-medium">
-                {rsvp.name}
-                <time className="text-xs opacity-50">
-                  {" "}
-                  -{" "}
-                  {rsvp.created_at.toLocaleString("en-GB", {
-                    timeZone: "Asia/Kuala_Lumpur",
-                    dateStyle: "long",
-                    timeStyle: "short",
-                    hour12: true,
-                  })}
-                </time>
-              </div>
-              <div className="chat-bubble chat-bubble-primary min-h-0 text-sm text-base-100">
-                {rsvp.message}
-              </div>
+              {rsvp.message ? (
+                <>
+                  <div className="chat-header font-medium">
+                    {rsvp.name}
+                    <time className="text-xs opacity-50">
+                      {" "}
+                      -{" "}
+                      {rsvp.created_at.toLocaleString("en-GB", {
+                        timeZone: "Asia/Kuala_Lumpur",
+                        dateStyle: "long",
+                        timeStyle: "short",
+                        hour12: true,
+                      })}
+                    </time>
+                  </div>
+                  <div className="chat-bubble chat-bubble-primary min-h-0 text-sm text-base-100">
+                    {rsvp.message}
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
         </div>

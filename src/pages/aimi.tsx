@@ -178,7 +178,7 @@ export const IntroductionPage = ({
           Dato&apos; | Datin | Tuan | Puan | Encik | Cik
         </h6>
         <h6 className="text-center text-sm">
-          hadir ke majlis perkahwinan anakanda kami
+          sekeluarga hadir ke majlis perkahwinan anakanda kami
         </h6>
       </div>
       <div className="flex text-center">

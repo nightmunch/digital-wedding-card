@@ -156,13 +156,13 @@ export const IntroductionPage = ({
       </div>
       <div className="flex text-center">
         <div className="flex flex-col items-center justify-center">
-          <h6 className="aetrina text-2xl font-medium capitalize text-primary">
+          <h6 className="aetrina text-3xl font-medium capitalize text-primary">
             {pasangan1}
           </h6>
-          <h6 className="aetrina text-2xl font-medium capitalize text-primary">
+          <h6 className="aetrina text-3xl font-medium capitalize text-primary">
             &
           </h6>
-          <h6 className="aetrina text-2xl font-medium capitalize text-primary">
+          <h6 className="aetrina text-3xl font-medium capitalize text-primary">
             {pasangan2}
           </h6>
         </div>

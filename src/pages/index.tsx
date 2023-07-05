@@ -58,7 +58,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="white-heart.gif" />
         <meta
           property="og:image"
-          content="https://wedding.nightmunch.com/api/aimi"
+          content="https://wedding.nightmunch.com/api/shahrin"
         />
         <meta
           name="viewport"

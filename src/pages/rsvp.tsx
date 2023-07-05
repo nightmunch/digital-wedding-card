@@ -53,7 +53,7 @@ const RSVP: NextPage = () => {
                         Yes
                       </div>
                     ) : (
-                      "No"
+                      <div className="badge-error badge badge-sm gap-2">No</div>
                     )}
                   </td>
                   <td>{rsvp.inviting}</td>

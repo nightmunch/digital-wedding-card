@@ -12,39 +12,56 @@ const RSVP: NextPage = () => {
   }, 0);
   return (
     <div
-      className="mx-auto min-h-screen w-full max-w-[600px] scroll-smooth shadow-2xl shadow-gray-600/50"
+      className="mx-auto min-h-screen w-full max-w-[600px] scroll-smooth pt-10 shadow-2xl shadow-gray-600/50"
       data-theme="aimi"
     >
-      <div className="flex flex-col gap-5 pt-12">
-        <h1 className="text-center font-semibold">RSVP✨</h1>
-        <div className="mx-5 overflow-x-auto">
-          <table className="table-zebra table w-full">
+      <div className="flex flex-col gap-5">
+        <div className="flex justify-center">
+          <div className="stats shadow">
+            <div className="stat place-items-center">
+              <div className="stat-title">Total Attending</div>
+              <div className="stat-value">{attendingSum}</div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-center text-2xl font-semibold text-primary">
+            RSVP
+          </h1>
+          <h2 className="text-center text-sm text-base-content">
+            Check guest attendance and private message!
+          </h2>
+        </div>
+        <div className="mx-5 h-96 overflow-auto">
+          <table className="table-xs table-pin-cols table-pin-rows table-zebra table">
             {/* head */}
             <thead>
               <tr>
-                <th></th>
                 <th>Name</th>
-                <th>Attend?</th>
-                <th>Inviting</th>
-                <th>Message</th>
+                <td>Attend?</td>
+                <td>Inviting</td>
+                <td>Message</td>
               </tr>
             </thead>
             <tbody>
-              {getAllRSVP.data?.map((rsvp, index) => (
+              {getAllRSVP.data?.map((rsvp) => (
                 <tr key={rsvp.id}>
-                  <th>{index + 1}</th>
-                  <td>{rsvp.name}</td>
-                  <td>{rsvp.attendance ? "Yes" : "No"}</td>
+                  <th>{rsvp.name}</th>
+                  <td>
+                    {rsvp.attendance ? (
+                      <div className="badge-success badge badge-sm gap-2">
+                        Yes
+                      </div>
+                    ) : (
+                      "No"
+                    )}
+                  </td>
                   <td>{rsvp.inviting}</td>
                   <td>{rsvp.message}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="flex flex-col text-center font-semibold">
-          <h1>Total Attending</h1>
-          <h1 className="text-4xl text-primary">{attendingSum}</h1>
         </div>
       </div>
     </div>

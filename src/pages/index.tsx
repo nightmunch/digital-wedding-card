@@ -44,8 +44,8 @@ const Home: NextPage = () => {
   const pasangan2 = "Aimi";
   const pasangan1_full = "Shahrin Amin";
   const pasangan2_full = "Aimi Umairah";
-  const bapa = "Sharifudin bin Ghazalli";
-  const ibu = "Zurinah binti Jaa'far";
+  const bapa = "Sharifudin bin Ghazali";
+  const ibu = "Zurinah binti Jaafar";
   const tarikh = "Ahad, 27 Ogos 2023";
   const alamat =
     "F55, Jln Pju 5/20e Pju 5, Encorp Strand Mall, Kota Damansara, 47810 Petaling Jaya, Selangor";
@@ -576,12 +576,12 @@ const ModalRSVPNo = ({
 const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
   const contactList = [
     {
-      name: "Sharifudin Ghazalli",
+      name: "Sharifudin Ghazali",
       relation: "Bapa",
       phone_num: "601110006500",
     },
     {
-      name: "Zurinah Jaa'far",
+      name: "Zurinah Jaafar",
       relation: "Ibu",
       phone_num: "601110017667",
     },

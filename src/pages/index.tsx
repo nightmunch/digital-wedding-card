@@ -45,7 +45,7 @@ const Home: NextPage = () => {
   const pasangan1_full = "Shahrin Amin";
   const pasangan2_full = "Aimi Umairah";
   const bapa = "Sharifudin bin Ghazali";
-  const ibu = "Zurinah binti Jaafar";
+  const ibu = "Zurinah binti Ja'afar";
   const tarikh = "Ahad, 27 Ogos 2023";
   const alamat =
     "F55, Jln Pju 5/20e Pju 5, Encorp Strand Mall, Kota Damansara, 47810 Petaling Jaya, Selangor";
@@ -104,7 +104,7 @@ const TitlePage = ({
   tarikh: string;
 }) => {
   return (
-    <div className="flex h-screen snap-none flex-col items-center justify-center gap-5 bg-[url('/aimi-bg.png')] bg-cover bg-center pb-16 sm:snap-center">
+    <div className="flex h-screen snap-none flex-col items-center justify-center gap-5 bg-[url('/shahrin-bg.png')] bg-cover bg-center pb-16 sm:snap-center">
       <h6 className="text-sm uppercase">Walimatulurus</h6>
       <div className="flex flex-col items-center justify-center">
         <h6 className="aetrina text-5xl capitalize text-primary">
@@ -581,7 +581,7 @@ const ModalContact = ({ isOpen }: { isOpen: boolean }) => {
       phone_num: "601110006500",
     },
     {
-      name: "Zurinah Jaafar",
+      name: "Zurinah Ja'afar",
       relation: "Ibu",
       phone_num: "601110017667",
     },

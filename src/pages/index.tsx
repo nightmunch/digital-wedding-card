@@ -191,11 +191,11 @@ const TentativePage = () => {
         </h6>
         <div className="flex flex-col items-center justify-center">
           <h6 className="text-sm">Majlis Bermula:</h6>
-          <h6 className="text-sm">12:00 PM</h6>
+          <h6 className="text-sm">11:00 AM</h6>
         </div>
         <div className="flex flex-col items-center justify-center">
           <h6 className="text-sm">Ketibaan Pasangan Pengantin:</h6>
-          <h6 className="text-sm">02:00 PM</h6>
+          <h6 className="text-sm">12:30 PM</h6>
         </div>
         <div className="flex flex-col items-center justify-center">
           <h6 className="text-sm">Majlis Bersurai:</h6>
